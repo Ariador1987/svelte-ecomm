@@ -1,4 +1,5 @@
 <script>
+	import CartItemsList from './CartItemsList.svelte';
     // we need link if user is not logged in to navigate him to login
 	import { link } from 'svelte-routing';
     import globalStore from "../../stores/globalStore";
@@ -18,8 +19,7 @@
                 <h2 class="cart-title">Your bag</h2>
                 <span/>
             </div>
-            <p>Cart items</p>
-            <!-- Cart Footer TODO: Login link or checkout -->
+            <CartItemsList/>
             <div class="cart-footer">
                 {#if user}
                     <a href="/checkout" use:link class="btn btn-primary btn-block" on:click={() => globalStore.toggleItem("cart", false)}>
