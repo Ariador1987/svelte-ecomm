@@ -7,6 +7,7 @@
 	import Loading from "../components/Loading.svelte";
     //// GLOBAL STORE
     import productStore from "../stores/defaultProductsStore";
+    import globalStore from "../stores/globalStore";
     // getting product from exported ID value (passed prop will be string)
     // 2nd edgecase is if productStore is empty while waiting from BackEnd
     $:product = $productStore.find((prod) => prod.id === Number.parseInt(id));
@@ -31,7 +32,7 @@
                 <h1>{product.title}</h1>
                 <h2>${product.price}</h2>
                 <p>{product.description}</p>
-                <button class="btn btn-primary btn-block" on:click="{() => console.log("hi")}">Add to cart</button>
+                <button class="btn btn-primary btn-block" on:click="{() => globalStore.toggleItem("cart", true)}">Add to cart</button>
             </article>
         </div>
     </section>

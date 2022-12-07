@@ -1,8 +1,14 @@
 <script>
     import SmallNavbar from "./SmallNavbar.svelte";
     import BigNavbar from "./BigNavbar.svelte";
+    import globalStore from "../../stores/globalStore";
 
+    let closeSidebar = globalStore.toggleItem;
+    
     let screenWidth;
+    $: if (screenWidth > 992) {
+        globalStore.toggleItem("sidebar", false);
+    }
     // onMount
     // window.addEL innerWidth
     // onDestroy

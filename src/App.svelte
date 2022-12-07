@@ -10,8 +10,8 @@
     import {Router, Route, Link} from "svelte-routing";
     import Navbar from "./components/Navbar/Navbar.svelte";
     import Sidebar from "./components/Navbar/Sidebar.svelte";
+    import Cart from "./components/Cart/Cart.svelte";
     import globalStore from "./stores/globalStore";
-    console.log($globalStore)
 </script>
 
 <svelte:head>
@@ -19,6 +19,9 @@
 </svelte:head>
 
 <Router>
+    {#if $globalStore.cart}
+       <Cart/>
+    {/if}
     <Navbar/>
     {#if $globalStore.sidebar}
         <Sidebar/>
